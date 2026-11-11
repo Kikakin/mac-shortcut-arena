@@ -1,0 +1,20 @@
+name = "mac-shortcut-arena-api"
+main = "worker/index.ts"
+compatibility_date = "2025-01-01"
+
+[vars]
+ALLOWED_ORIGIN = "http://127.0.0.1:5173"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "arena-db"
+database_id = "00000000-0000-0000-0000-000000000000"
+
+# Deploy only with --env production. The default binding above remains local-only.
+[env.production.vars]
+ALLOWED_ORIGIN = "https://kikakin.github.io"
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "mac-shortcut-arena-db"
+database_id = "4e6caec6-ae1f-45b8-8358-bf7ee59de50d"
